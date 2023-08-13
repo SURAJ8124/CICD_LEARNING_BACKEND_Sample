@@ -6,6 +6,8 @@ const jwt = require("jsonwebtoken")
 //@route Post /api/users/register
 //@access public
 
+ const ACCESS_TOKEN_SECERT= "surajchavan1532";
+
 const registerUser= asyncHandler(async(req,res)=>{
     const {username, email, password}= req.body;
     if(!username||!email||!password){
@@ -60,7 +62,7 @@ const loginUser= asyncHandler(async(req,res)=>{
                 email:user.email,
                 id: user.id
             }
-        }, process.env.ACCESS_TOKEN_SECERT,
+        }, ACCESS_TOKEN_SECERT,
         {expiresIn:"1m"}
         );
         res.status(200).json({accessToken});

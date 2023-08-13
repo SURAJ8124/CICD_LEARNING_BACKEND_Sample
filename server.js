@@ -1,13 +1,12 @@
 const express = require("express");
 const errorHandler = require("./middleWare/errorHandler");
 const connectDb = require("./config/dbConnection");
-const dotenv = require("dotenv").config();
 
 
 connectDb();
 const app = express();
 
-const port =process.env.PORT || 5000;
+const port =5001;
 //when you accept some data from client to server you should be use body parser to get that data 
 // for that we use middleware app.use(express.json())
 app.use(express.json())
